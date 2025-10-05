@@ -18,4 +18,4 @@ EXPOSE 5678
 #       N8N_ENCRYPTION_KEY
 #       WEBHOOK_URL
 # -------------------------------------------------------
-CMD ["n8n"]
+CMD ["node", "/usr/local/lib/node_modules/n8n/bin/n8n"]
