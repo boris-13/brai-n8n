@@ -18,4 +18,8 @@ EXPOSE 5678
 #       N8N_ENCRYPTION_KEY
 #       WEBHOOK_URL
 # -------------------------------------------------------
-CMD ["node", "/usr/local/lib/node_modules/n8n/bin/n8n"]
+# Enforce secure permissions on settings file
+ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
+
+# ✅ Use the built-in entrypoint — do NOT override it
+CMD ["n8n"]
