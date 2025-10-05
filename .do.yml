@@ -1,0 +1,37 @@
+# DigitalOcean App Platform manifest for n8n
+name: brai-n8n
+services:
+  - name: n8n
+    github:
+      repo: boris-13/brai-n8n
+      branch: main
+      deploy_on_push: false
+    dockerfile_path: Dockerfile
+    envs:
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "true"
+      - key: N8N_BASIC_AUTH_USER
+        value: "admin"
+      - key: N8N_BASIC_AUTH_PASSWORD
+        value: "hiddeN77_!Nd"
+      - key: N8N_ENCRYPTION_KEY
+        value: "ddf4bf24da6e85b12296e736874b5ba5"
+      - key: N8N_HOST
+        value: "0.0.0.0"
+      - key: N8N_PORT
+        value: "5678"
+      - key: WEBHOOK_URL
+        value: "https://brai-n8n.ondigitalocean.app/"
+      - key: GENERIC_TIMEZONE
+        value: "Europe/Amsterdam"
+    http_port: 5678
+    instance_count: 1
+    instance_size_slug: basic-xxs
+    routes:
+      - path: /
+    volume_mounts:
+      - volume_name: n8n-data
+        mount_path: /home/node/.n8n
+volumes:
+  - name: n8n-data
+    size_gigabytes: 5
