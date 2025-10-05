@@ -22,4 +22,4 @@ EXPOSE 5678
 ENV N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true
 
 # ✅ Use the built-in entrypoint — do NOT override it
-CMD ["n8n"]
+ENTRYPOINT ["/usr/local/bin/n8n"]
